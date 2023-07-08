@@ -10,6 +10,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private RectTransform rectTransform;
     private bool droppedOnStartCollider;
 
+    public bool isSelected;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -25,6 +27,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("InicioDrag");
+        isSelected = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -41,6 +44,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         if (droppedOnStartCollider)
         {
             Debug.Log("Local correto");
+            isSelected = true;
         }
         else
         {
