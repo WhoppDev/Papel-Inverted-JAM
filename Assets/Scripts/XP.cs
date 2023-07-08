@@ -29,7 +29,7 @@ public class XP : MonoBehaviour
         currentXp += valorxpbar * Time.deltaTime;
         currentXp = Mathf.Clamp(currentXp, 0, maxXp);
 
-        XPvalue = Mathf.FloorToInt(currentXp);
+        XPvalue = (int)currentXp;
         xpValueTxt.text = XPvalue.ToString();
     }
 

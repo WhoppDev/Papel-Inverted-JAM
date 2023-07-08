@@ -3,9 +3,6 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     public float velocidade = 5f;
-    public Transform ponto;
-
-    public GameObject location;
 
     private void Start()
     {
@@ -14,15 +11,7 @@ public class CharacterController : MonoBehaviour
 
     private void Update()
     {
-        //Move();
-        Vector2 distancia = ponto.position - transform.position;
-
-        distancia.Normalize();
-        
-        Vector2 targetPosition = (Vector2)transform.position + distancia * velocidade * Time.deltaTime;
-
-        transform.position = targetPosition;
-        
+        Move();
     }
 
     private void Move()
