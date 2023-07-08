@@ -10,11 +10,18 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private RectTransform rectTransform;
     private bool droppedOnStartCollider;
 
+    public GameObject prefab;
+
+    public GameObject SpawnPoint;
+
+    private SpawnController drop;
+
     public bool isSelected;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        drop = FindAnyObjectByType<SpawnController>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -45,6 +52,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         {
             Debug.Log("Local correto");
             isSelected = true;
+            Instantiate(prefab, SpawnPoint.transform);
         }
         else
         {

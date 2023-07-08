@@ -11,7 +11,10 @@ public class CardController : MonoBehaviour
     [SerializeField] private GameObject[] Prefab;
 
     public GameObject canvasobject;
+
     private SpawnController drop;
+
+    [SerializeField] private GameObject SpawnPoint;
 
 
 
@@ -26,6 +29,16 @@ public class CardController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!drop.SpawnSelected == null)
+        {
+            switch (drop.SpawnSelected.name)
+            {
+                case "Card1":
+                    print("testeeeeeee");
+                    Instantiate(Prefab[0], drop.SpawnSelected.transform);
+                    break;
+            }
+        }
+
     }
 }

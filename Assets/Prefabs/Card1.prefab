@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7577571761148124047}
   - component: {fileID: 7577571761148124046}
   m_Layer: 0
-  m_Name: Monstro1
+  m_Name: Card1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7577571761148124043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.81, y: 4.5, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.27, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 2
+  indice: 0
   ponto:
   - {fileID: 0}
   - {fileID: 0}
@@ -108,7 +109,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  indice: 0
+  isViewing: 0
+  distancia: {x: 0, y: 0}
+  torre: {fileID: 0}
 --- !u!58 &7577571761148124047
 CircleCollider2D:
   m_ObjectHideFlags: 0
