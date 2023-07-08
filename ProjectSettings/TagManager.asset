@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spawn
   - Point
+  - Torre
   layers:
   - Default
   - TransparentFX

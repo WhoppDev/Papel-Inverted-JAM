@@ -6,6 +6,7 @@ public class Armadilha : MonoBehaviour
 {
     
     public GameObject objeto;
+    public Transform spot;
     
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class Armadilha : MonoBehaviour
         if(collider.gameObject.tag == "Player") {
 
             GameObject temp = Instantiate(objeto);
+            temp.transform.position = new Vector3(spot.transform.position.x, spot.transform.position.y, spot.transform.position.z);
             print("Criei");
 
         }
