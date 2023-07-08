@@ -4,6 +4,8 @@ public class CharacterController : MonoBehaviour
 {
     public float velocidade = 5f;
 
+    public GameObject location;
+
     private void Start()
     {
 
