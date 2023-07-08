@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2398580832033105556}
   - component: {fileID: 9000142517254756640}
   - component: {fileID: 4485370031923802823}
+  - component: {fileID: -3198473282581929364}
   m_Layer: 0
   m_Name: Tiro
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 0, b: 0.8836632, a: 1}
   m_FlipX: 0
@@ -97,4 +98,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6c8bced02822a4ea27d17d4f7ac229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monstro1: {fileID: 7577571761148124043, guid: aa4031e3e99051941bcac42ec6ecdddf, type: 3}
+  monstro1: {fileID: 7577571761148124045, guid: aa4031e3e99051941bcac42ec6ecdddf, type: 3}
+  velocidade: 1
+--- !u!50 &-3198473282581929364
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3406172842307332522}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

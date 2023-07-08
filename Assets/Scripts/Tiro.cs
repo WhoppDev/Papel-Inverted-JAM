@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Tiro : MonoBehaviour
 {
-    public GameObject monstro1;
+    public Transform monstro1;
+
+    public float velocidade;
     
     // Start is called before the first frame update
     void Start()
@@ -16,5 +18,13 @@ public class Tiro : MonoBehaviour
     void Update()
     {
         
+        Vector2 distance = monstro1.position - transform.position;
+
+        distance.Normalize();
+
+        Vector2 posicaoAlvo = (Vector2)transform.position + distance * velocidade * Time.deltaTime;
+
+        transform.position = posicaoAlvo;
+
     }
 }
