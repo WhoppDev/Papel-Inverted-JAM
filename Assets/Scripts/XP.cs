@@ -7,7 +7,7 @@ public class XP : MonoBehaviour
 {
     [SerializeField] private Image XpBar;
     [SerializeField] private Text xpValueTxt;
-    [SerializeField] private float currentXp = 5; // XP atual do palyer
+    public float currentXp = 5; // XP atual do palyer
     [SerializeField] private int maxXp = 100; // Maximo de XP do player
 
 
@@ -32,6 +32,7 @@ public class XP : MonoBehaviour
         XPvalue = (int)currentXp;
         xpValueTxt.text = XPvalue.ToString();
     }
+
 
 
 

@@ -12,16 +12,22 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public GameObject prefab;
 
+    [SerializeField] private XP xp;
+
     public GameObject SpawnPoint;
 
     private SpawnController drop;
 
-    public bool isSelected;
+    public bool isUsed;
 
     private void Awake()
     {
+        canvas = GameObject.Find("-=-= DeckSystem").GetComponent<Canvas>();
+        SpawnPoint = GameObject.Find("SpawnPoint");
+        isUsed = false;
         rectTransform = GetComponent<RectTransform>();
         drop = FindAnyObjectByType<SpawnController>();
+        xp = FindAnyObjectByType<XP>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -34,7 +40,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("InicioDrag");
-        isSelected = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -51,8 +56,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         if (droppedOnStartCollider)
         {
             Debug.Log("Local correto");
-            isSelected = true;
+            isUsed = true;
             Instantiate(prefab, SpawnPoint.transform);
+            xp.currentXp -= 50;
         }
         else
         {
