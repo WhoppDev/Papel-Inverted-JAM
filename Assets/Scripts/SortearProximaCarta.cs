@@ -3,13 +3,19 @@ using UnityEngine;
 public class SortearProximaCarta : MonoBehaviour
 {
     public GameObject[] objetosArray; // Array de objetos
-    public GameObject objetoPrefab; // Prefab do objeto a ser criado
 
     public GameObject[] cartas;
     public GameObject spawnCartas;
 
+    public GameObject abrirBtn;
+    public GameObject cards;
+    public GameObject fecharBtn;
+
     void Start()
     {
+        abrirBtn.SetActive(false);
+        cards.SetActive(true);
+        fecharBtn.SetActive(true);
         // Inicializa o array com os objetos existentes no início do jogo
         objetosArray = new GameObject[3];
         for (int i = 0; i < objetosArray.Length; i++)
@@ -39,5 +45,19 @@ public class SortearProximaCarta : MonoBehaviour
         GameObject novoObjeto = Instantiate(cartas[index], spawnCartas.transform);
         // Realize qualquer configuração adicional que você precisar para o novo objeto aqui
         return novoObjeto;
+    }
+
+    public void AbrirCartas()
+    {
+        abrirBtn.SetActive(false);
+        cards.SetActive(true);
+        fecharBtn.SetActive(true);
+    }
+
+    public void FecharCartas()
+    {
+        abrirBtn.SetActive(true);
+        cards.SetActive(false);
+        fecharBtn.SetActive(false);
     }
 }

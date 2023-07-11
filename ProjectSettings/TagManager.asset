@@ -7,6 +7,7 @@ TagManager:
   - Spawn
   - Point
   - Torre
+  - Bullet
   layers:
   - Default
   - TransparentFX

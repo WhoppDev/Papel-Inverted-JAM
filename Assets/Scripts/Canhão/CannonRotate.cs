@@ -12,6 +12,8 @@ public class CannonRotate : MonoBehaviour
     public float shootInterval = 1f; // Intervalo de tempo entre os disparos
     private float shootTimer = 0f; // Temporizador para controlar o intervalo de tiro
 
+    public float life;
+
     void Update()
     {
         if (objetoAlvo != null)
@@ -29,13 +31,18 @@ public class CannonRotate : MonoBehaviour
                 shootTimer = 0f;
             }
         }
+
+        if(life <= 0)
+        {
+            Destroy();
+        }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-            objetoAlvo = other.transform;
+            objetoAlvo = collision.transform;
         }
     }
 
@@ -45,5 +52,8 @@ public class CannonRotate : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
-
+    private void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }

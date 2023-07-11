@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.right * velocidade; // Define a velocidade inicial do projétil apenas no eixo X
+        rb.velocity = transform.up * velocidade; // Define a velocidade inicial do projétil apenas no eixo X
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

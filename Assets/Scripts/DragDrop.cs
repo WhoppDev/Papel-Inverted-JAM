@@ -16,8 +16,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public GameObject SpawnPoint;
 
-    private SpawnController drop;
-
     public bool isUsed;
 
     private void Awake()
@@ -26,7 +24,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         SpawnPoint = GameObject.Find("SpawnPoint");
         isUsed = false;
         rectTransform = GetComponent<RectTransform>();
-        drop = FindAnyObjectByType<SpawnController>();
         xp = FindAnyObjectByType<XP>();
     }
 
