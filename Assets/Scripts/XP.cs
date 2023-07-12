@@ -14,7 +14,7 @@ public class XP : MonoBehaviour
 
     public int XPvalue;
 
-    public float valorxpbar = 0.1f;
+    public float valorxpbar = 0.5f;
 
     private void Start()
     {

@@ -9,10 +9,29 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     private RectTransform rectTransform;
     private bool droppedOnStartCollider;
+    EnemyManager enemyManager = EnemyManager.instance;
+
+    public string _name;
+
+    #region Atributos
+
+    [SerializeField] private Text _xpNecessário;
+    [SerializeField] private Text _descrição;
+    [SerializeField] private Text _Nome;
+
+
+    [SerializeField] private float speed;
+    [SerializeField] public float _xp;
+    [SerializeField] public float streght;
+    [SerializeField] public int life;
+    [SerializeField] public string descrição;
+
+    #endregion
 
     public GameObject prefab;
 
     [SerializeField] private XP xp;
+
 
     public GameObject SpawnPoint;
 
@@ -25,6 +44,18 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         isUsed = false;
         rectTransform = GetComponent<RectTransform>();
         xp = FindAnyObjectByType<XP>();
+
+        EnemyData enemyData = enemyManager.npcList.Find(data => data.npcName == _name);
+
+        speed = enemyData.speed;
+        streght = enemyData.streght;
+        life = enemyData.life;
+        _xp = enemyData.requiredXP;
+
+        _xpNecessário.text = _xp.ToString();
+        _descrição.text = descrição;
+        _Nome.text = name;
+
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -50,12 +81,12 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         Debug.Log("EndDrag");
 
         // Verifica se o objeto foi solto em um objeto com a tag "Start"
-        if (droppedOnStartCollider)
+        if (droppedOnStartCollider && xp.currentXp >= _xp)
         {
-            Debug.Log("Local correto");
+            Debug.Log("Local correto: XP atual" + xp.currentXp);
             isUsed = true;
             Instantiate(prefab, SpawnPoint.transform);
-            xp.currentXp -= 50;
+            xp.currentXp -= _xp;
         }
         else
         {

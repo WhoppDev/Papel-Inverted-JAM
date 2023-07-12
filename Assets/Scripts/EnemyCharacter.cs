@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
+using UnityEngine.UI;
 
 public class EnemyCharacter : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private float stopDistance = 3f;
-    [SerializeField] private bool isViewing = false; //Se est� vendo a torre
+    [SerializeField] private bool isViewing = false; //Se está vendo a torre
     [SerializeField] private int indice;
     [SerializeField] private Vector2 distancia;
     [SerializeField] private CannonRotate CR;
@@ -21,6 +21,11 @@ public class EnemyCharacter : MonoBehaviour
     public List<Transform> ponto = new List<Transform>();
 
     #region Atributos
+
+    [SerializeField] private Text _xpNecessário;
+    [SerializeField] private Text _descrição;
+
+
     [SerializeField] private float speed;
     [SerializeField] public float streght;
     [SerializeField] public int life;
@@ -102,7 +107,7 @@ public class EnemyCharacter : MonoBehaviour
 
             Vector2 targetPosition = (Vector2)transform.position + distancia * speed * Time.deltaTime;
 
-            // Verifica se o objeto alcan�ou o ponto de destino atual
+            // Verifica se o objeto alcançou o ponto de destino atual
             if (Vector3.Distance(transform.position, ponto[indice].position) < 0.5f)
             {
                 indice++;
@@ -115,17 +120,21 @@ public class EnemyCharacter : MonoBehaviour
     }
 
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Torre")
+        {
+            CR = collision.gameObject.GetComponent<CannonRotate>();
+            torre = collision.gameObject;
+            isViewing = true;
+
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
 
-        if (collider.gameObject.tag == "Torre")
-        {
-            CR = collider.gameObject.GetComponent<CannonRotate>();
-            torre = collider.gameObject;
-            isViewing = true;
 
-        }
 
         if(collider.gameObject.tag == "Bullet")
         {

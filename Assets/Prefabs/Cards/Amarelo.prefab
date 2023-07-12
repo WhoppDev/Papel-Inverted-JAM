@@ -251,6 +251,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+  _name: Amarelo
+  "_xpNecess\xE1rio": {fileID: 7776698985416182353}
+  "_descri\xE7\xE3o": {fileID: 3816983257637068816}
+  _Nome: {fileID: 7437618483216710459}
+  speed: 0
+  _xp: 0
+  streght: 0
+  life: 0
+  "descri\xE7\xE3o": 
   prefab: {fileID: 7577571761148124043, guid: 4568c6ba8d5fd874cad93ee4586b6061, type: 3}
   xp: {fileID: 0}
   SpawnPoint: {fileID: 0}
